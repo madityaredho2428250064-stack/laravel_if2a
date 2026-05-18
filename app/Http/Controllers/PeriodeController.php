@@ -12,11 +12,10 @@ class PeriodeController extends Controller
      */
     public function index()
     {
-        Schema::create('periodes', function (Blueprint $table) {
-            $table->id();
-            $table->char('tahun_akedemik',9);
-            $table->char('semester',1)
-            $table->timestamps();
+        // akses model Periode 
+        $result = Periode::all(); // select * from periode
+        // dd($result);
+        return view('periode.index', compact('result'));
     }
 
     /**
@@ -24,7 +23,7 @@ class PeriodeController extends Controller
      */
     public function create()
     {
-        //
+        return view('periode.create');
     }
 
     /**
@@ -32,7 +31,17 @@ class PeriodeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // validasi data
+        $request->validate([
+            'tahun_akademik' => 'required',
+            'kode_smt' => 'required',
+        ]);
+
+        // simpan data ke database
+        Periode::create($request->all());
+
+        // redirect ke halaman index dengan pesan sukses
+        return redirect()->route('periode.index');
     }
 
     /**

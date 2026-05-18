@@ -12,10 +12,9 @@ class FakultasController extends Controller
      */
     public function index()
     {
-        //akses tabel fakultas
-        $result = fakultas::all(); //SELECT*FROM fakultas
-        //dd($result); //dump data
-        return view("fakultas.index",compact('result'));
+        $result = Fakultas::all(); // select * from fakultas
+        // dd($result);
+        return view('fakultas.index', compact('result'));
     }
 
     /**
@@ -23,7 +22,7 @@ class FakultasController extends Controller
      */
     public function create()
     {
-        //
+        return view('fakultas.create');
     }
 
     /**
@@ -31,7 +30,18 @@ class FakultasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // validasi data
+        $input = $request->validate([
+            'nama_fakultas' => 'required|unique:fakultas',
+            'singkatan' => 'required',
+            'dekan' => 'required'
+        ]);
+
+        // simpan data ke tabel fakultas
+        Fakultas::create($input);
+
+        // redirect ke halaman index fakultas
+        return redirect()->route('fakultas.index');
     }
 
     /**
