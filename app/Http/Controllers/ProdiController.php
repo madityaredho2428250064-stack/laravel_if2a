@@ -31,7 +31,7 @@ class ProdiController extends Controller
      */
     public function store(Request $request)
     {
-        // validasi data
+        // validasi input
         $input = $request->validate([
             'nama_prodi' => 'required|unique:prodis',
             'singkatan' => 'required|max:2',
@@ -42,7 +42,7 @@ class ProdiController extends Controller
         // simpan data ke tabel prodi
         Prodi::create($input);
 
-        // redirect ke halaman index prodi
+        // redirect ke route prodi.index
         return redirect()->route('prodi.index');
     }
 

@@ -1,24 +1,29 @@
 @extends('main')
 
-@section('title', 'Tambah Fakultas')
-@section('title', 'Tambah Fakultas')
+@section('title', 'Ubah Fakultas')
+
 
 @section('content')
-    <form action="{{ route('fakultas.store') }}" method="post">
+    <form action="{{ route('fakultas.update',$fakultas->id) }}"
+        method="post">
+        @csrf
+        @method('PUT')
         <div class="form-group">
             <label for="nama_fakultas">Nama Fakultas</label>
-            <input type="text" name="nama_fakultas" class="form-control" value="{{ old('nama_fakultas') }}">
+            <input type="text" name="nama_fakultas" class="form-control" value="{{ old('nama_fakultas') ?? $fakultas->nama_fakultas }}">
+            </div>
             @error('nama_fakultas')
                 <div class="text-danger">{{ $message }}</div>
             @enderror
-        </div>
+
         <div class="form-group">
-            <label for="singkatan">Singkatan</label>
-            <input type="text" name="singkatan" class="form-control" value="{{ old('singkatan') }}">
+            <label for="Singkatan">/label>
+            <input type="text" name="singkatan" class="form-control" value="{{ old('singkatan')
+            ?? $fakultas->singkatan }}">
+        </div>
             @error('singkatan')
                 <div class="text-danger">{{ $message }}</div>
             @enderror
-        </div>
         <div class="form-group">
             <label for="dekan">Nama Dekan</label>
             <input type="text" name="dekan" class="form-control" value="{{ old('dekan') }}">

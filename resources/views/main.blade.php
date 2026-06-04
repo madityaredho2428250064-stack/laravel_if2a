@@ -25,7 +25,7 @@
     <!--begin::Accessibility Features-->
     <!-- Skip links will be dynamically added by accessibility.js -->
     <meta name="supported-color-schemes" content="light dark" />
-    <link rel="preload" href="../css/adminlte.css" as="style" />
+    <link rel="preload" href="{{ url('css/adminlte.css') }}"
     <!--end::Accessibility Features-->
 
     <!--begin::Fonts-->
@@ -45,7 +45,7 @@
     <!--end::Third Party Plugin(Bootstrap Icons)-->
 
     <!--begin::Required Plugin(AdminLTE)-->
-    <link rel="stylesheet" href="../css/adminlte.css" />
+    <link rel="stylesheet" href="{{ url('css/adminlte.css') }}" />
     <!--end::Required Plugin(AdminLTE)-->
 </head>
 <!--end::Head-->
@@ -95,7 +95,7 @@
                                 <!--begin::Message-->
                                 <div class="d-flex">
                                     <div class="flex-shrink-0">
-                                        <img src="../assets/img/user1-128x128.jpg" alt="User Avatar"
+                                        <img src="{{ url('assets/img/user1-128x128.jpg') }} alt="User Avatar"
                                             class="img-size-50 rounded-circle me-3" />
                                     </div>
                                     <div class="flex-grow-1">
@@ -117,7 +117,7 @@
                                 <!--begin::Message-->
                                 <div class="d-flex">
                                     <div class="flex-shrink-0">
-                                        <img src="../assets/img/user8-128x128.jpg" alt="User Avatar"
+                                        <img src="{{ url('assets/img/user8-128x128.jpg') }}" alt="User Avatar"
                                             class="img-size-50 rounded-circle me-3" />
                                     </div>
                                     <div class="flex-grow-1">
@@ -259,7 +259,7 @@
                 <!--begin::Brand Link-->
                 <a href="../index.html" class="brand-link">
                     <!--begin::Brand Image-->
-                    <img src="../assets/img/AdminLTELogo.png" alt="AdminLTE Logo"
+                    <img src="{{ url('assets/img/AdminLTELogo.png') }}" alt="AdminLTE Logo"
                         class="brand-image opacity-75 shadow" />
                     <!--end::Brand Image-->
                     <!--begin::Brand Text-->
@@ -508,6 +508,7 @@
                                         <i class="nav-icon bi bi-box-arrow-in-right"></i>
                                         <p>
                                             Version 1
+
                                             <i class="nav-arrow bi bi-chevron-right"></i>
                                         </p>
                                     </a>
@@ -773,59 +774,59 @@
 
                                     <div class="card-tools">
                                         <button type="button" class="btn btn-tool" data-lte-toggle="card-collapse"
-                                            title="Collapse">
-                                            <i data-lte-icon="expand" class="bi bi-plus-lg"></i>
-                                            <i data-lte-icon="collapse" class="bi bi-dash-lg"></i>
-                                        </button>
-                                        <button type="button" class="btn btn-tool" data-lte-toggle="card-remove"
-                                            title="Remove">
-                                            <i class="bi bi-x-lg"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                                <div class="card-body">
-                                    @yield('content')
-                                </div>
-                                <!-- /.card-body -->
-                                <div class="card-footer">Footer</div>
-                                <!-- /.card-footer-->
+                                        title="Collapse">
+                                        <i data-lte-icon="expand" class="bi bi-plus-lg"></i>
+                                        <i data-lte-icon="collapse" class="bi bi-dash-lg"></i>
+                                    </button>
+                                    <button type="button" class="btn btn-tool" data-lte-toggle="card-remove"
+                                    title="Remove">
+                                    <i class="bi bi-x-lg"></i>
+                                </button>
                             </div>
-                            <!-- /.card -->
                         </div>
+                        <div class="card-body">
+                            @yield('content')
+                        </div>
+                        <!-- /.card-body -->
+                        <div class="card-footer">Footer</div>
+                        <!-- /.card-footer-->
                     </div>
-                    <!--end::Row-->
+                    <!-- /.card -->
                 </div>
             </div>
-            <!--end::App Content-->
-        </main>
-        <!--end::App Main-->
-        <!--begin::Footer-->
-        <footer class="app-footer">
-            <!--begin::To the end-->
-            <div class="float-end d-none d-sm-inline">Anything you want</div>
-            <!--end::To the end-->
-            <!--begin::Copyright-->
-            <strong>
-                Copyright &copy; 2014-2026&nbsp;
-                <a href="https://adminlte.io" class="text-decoration-none">AdminLTE.io</a>.
-            </strong>
-            All rights reserved.
-            <!--end::Copyright-->
-        </footer>
-        <!--end::Footer-->
+            <!--end::Row-->
+        </div>
     </div>
-    <!--end::App Wrapper-->
-    <!--begin::Script-->
-    <!--begin::Third Party Plugin(OverlayScrollbars)-->
-    <script src="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.11.0/browser/overlayscrollbars.browser.es6.min.js"
-        crossorigin="anonymous"></script>
-    <!--end::Third Party Plugin(OverlayScrollbars)--><!--begin::Required Plugin(popperjs for Bootstrap 5)-->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" crossorigin="anonymous">
+    <!--end::App Content-->
+</main>
+<!--end::App Main-->
+<!--begin::Footer-->
+<footer class="app-footer">
+    <!--begin::To the end-->
+    <div class="float-end d-none d-sm-inline">Anything you want</div>
+    <!--end::To the end-->
+    <!--begin::Copyright-->
+    <strong>
+        Copyright &copy; 2014-2026&nbsp;
+        <a href="https://adminlte.io" class="text-decoration-none">AdminLTE.io</a>.
+    </strong>
+    All rights reserved.
+    <!--end::Copyright-->
+</footer>
+<!--end::Footer-->
+</div>
+<!--end::App Wrapper-->
+<!--begin::Script-->
+<!--begin::Third Party Plugin(OverlayScrollbars)-->
+<script src="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.11.0/browser/overlayscrollbars.browser.es6.min.js"
+crossorigin="anonymous"></script>
+<!--end::Third Party Plugin(OverlayScrollbars)--><!--begin::Required Plugin(popperjs for Bootstrap 5)-->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" crossorigin="anonymous">
     </script>
     <!--end::Required Plugin(popperjs for Bootstrap 5)--><!--begin::Required Plugin(Bootstrap 5)-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.min.js" crossorigin="anonymous"></script>
     <!--end::Required Plugin(Bootstrap 5)--><!--begin::Required Plugin(AdminLTE)-->
-    <script src="../js/adminlte.js"></script>
+    <script src="{{ url('js/adminlte.js') }}"></script>
     <!--end::Required Plugin(AdminLTE)--><!--begin::OverlayScrollbars Configure-->
     <script>
         const SELECTOR_SIDEBAR_WRAPPER = '.sidebar-wrapper';
@@ -854,9 +855,31 @@
                 });
             }
         });
-    </script>
+        </script>
     <!--end::OverlayScrollbars Configure-->
     <!--end::Script-->
+    <script src="https://code.jquery.com/jquery-4.0.0.min.js" integrity="sha256-OaVG6prZf4v69dPg6PhVattBXkcOWQB62pdZ3ORyrao=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
+    <script type="text/javascript">
+        $('.show_confirm').click(function(event) {
+            var form = $(this).closest("form");
+            var nama = $(this).data("nama");
+            event.preventDefault();
+            swal({
+                    title: `Apakah Anda yakin ingin menghapus data ${nama} ini?`,
+                    text: "If you delete this, it will be gone forever.",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        form.submit();
+                    }
+                });
+        });
+    </script>
+
 </body>
 <!--end::Body-->
 
